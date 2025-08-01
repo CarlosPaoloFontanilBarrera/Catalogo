@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JIREH STREAMING - Las mejores plataformas de streaming a precios increíbles. Netflix, Prime Video, Disney+, Crunchyroll y más.">
+    <meta name="keywords" content="streaming, netflix, prime video, disney+, crunchyroll, peru, precios baratos">
+    <meta name="author" content="JIREH STREAMING">
+    <title>🎬 JIREH STREAMING - Plataformas Premium a Precios Increíbles</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tu-usuario.github.io/jireh-streaming/">
+    <meta property="og:title" content="JIREH STREAMING - Plataformas Premium">
+    <meta property="og:description" content="Las mejores plataformas de streaming a precios increíbles. Garantía y soporte 24/7.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+    
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            --card-gradient: linear-gradient(145deg, #2d3748 0%, #4a5568 100%);
+            --success-color: #4ecdc4;
+            --price-color: #ff6b6b;
+            --whatsapp-color: #25d366;
+            --shadow-hover: 0 20px 40px rgba(0,0,0,0.3);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            background-attachment: fixed;
+            color: white;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Scrollbar personalizado */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-gradient);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-gradient);
+        }
+
+        /* Header con animación mejorada */
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--secondary-gradient);
+            background-size: 400% 400%;
+            animation: gradientFlow 8s ease infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes gradientFlow {
+            0%, 100% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 50% 100%; }
+            75% { background-position: 100% 0%; }
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .logo {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+            position: relative;
+            z-index: 2;
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        /* Navigation con efectos mejorados */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+            gap: 30px;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        .tab-btn {
+            padding: 18px 40px;
+            background: var(--primary-gradient);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .tab-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: var(--transition);
+        }
+
+        .tab-btn:hover::before, .tab-btn.active::before {
+            left: 100%;
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: var(--shadow-hover);
+            background: linear-gradient(45deg, #764ba2, #667eea);
+        }
+
+        /* Grid optimizado para todas las pantallas */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+            gap: 30px;
+            margin: 50px 0;
+            padding: 0 20px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Tarjetas con efectos premium */
+        .service-card {
+            background: var(--card-gradient);
+            border-radius: 25px;
+            padding: 35px;
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, var(--success-color), transparent);
+            opacity: 0;
+            transition: var(--transition);
+            animation: rotate 4s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .service-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            border-color: var(--success-color);
+            box-shadow: var(--shadow-hover);
+            background: linear-gradient(145deg, #3d4852 0%, #5a6572 100%);
+        }
+
+        .platform-logo {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 20px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            transition: var(--transition);
+        }
+
+        .service-card:hover .platform-logo {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+        }
+
+        .platform-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--success-color);
+            position: relative;
+            z-index: 2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .price {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            font-weight: 900;
+            color: var(--price-color);
+            margin: 20px 0;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .features {
+            list-style: none;
+            margin: 20px 0;
+            text-align: left;
+            position: relative;
+            z-index: 2;
+        }
+
+        .features li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 30px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            top: 6px;
+        }
+
+        .service-card:hover .features li {
+            transform: translateX(5px);
+        }
+
+        /* Botón de compra mejorado */
+        .buy-btn {
+            background: linear-gradient(45deg, var(--price-color), #ff8e8e);
+            border: none;
+            padding: 18px 35px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        .buy-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: var(--transition);
+        }
+
+        .buy-btn:hover::before {
+            left: 100%;
+        }
+
+        .buy-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
+            background: linear-gradient(45deg, #ff5252, #ff6b6b);
+        }
+
+        /* Sección de garantías mejorada */
+        .guarantees {
+            background: var(--primary-gradient);
+            padding: 60px 20px;
+            margin: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guarantees::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .guarantees h2 {
+            font-size: clamp(2rem, 6vw, 3rem);
+            margin-bottom: 40px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+            font-weight: 900;
+        }
+
+        .guarantee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .guarantee-item {
+            padding: 30px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .guarantee-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.25);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .guarantee-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Sección de contacto premium */
+        .contact {
+            background: var(--card-gradient);
+            padding: 60px 20px;
+            text-align: center;
+            margin: 60px 20px;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(78, 205, 196, 0.3);
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(78, 205, 196, 0.1), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .contact:hover::before {
+            opacity: 1;
+        }
+
+        .whatsapp-btn {
+            background: var(--whatsapp-color);
+            color: white;
+            padding: 25px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            transition: var(--transition);
+            margin: 30px 0;
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: var(--transition);
+        }
+
+        .whatsapp-btn:hover::before {
+            left: 100%;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(37, 211, 102, 0.6);
+            background: #128c7e;
+        }
+
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .payment-icon {
+            width: 80px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--success-color), #44a08d);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+        }
+
+        .payment-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(78, 205, 196, 0.5);
+        }
+
+        /* Footer elegante */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(0,0,0,0.5);
+            margin-top: 60px;
+            border-top: 2px solid rgba(78, 205, 196, 0.3);
+        }
+
+        .footer p {
+            margin: 10px 0;
+            opacity: 0.8;
+        }
+
+        /* Animaciones de entrada */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive optimizado */
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .tab-btn {
+                width: 280px;
+                padding: 15px 30px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding: 0 15px;
+            }
+            
+            .service-card {
+                padding: 25px;
+            }
+            
+            .whatsapp-btn {
+                padding: 20px 40px;
+                font-size: 1.1rem;
+            }
+            
+            .payment-methods {
+                gap: 15px;
+            }
+            
+            .payment-icon {
+                width: 70px;
+                height: 45px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 40px 15px;
+            }
+            
+            .service-card {
+                padding: 20px;
+            }
+            
+            .platform-logo {
+                width: 70px;
+                height: 70px;
+                font-size: 1.5rem;
+            }
+            
+            .guarantee-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* Estados ocultos para tabs */
+        .hidden {
+            display: none;
+        }
+
+        /* Efectos de carga */
+        .loading {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header loading">
+            <h1 class="logo">🎬 JIREH STREAMING</h1>
+            <p class="tagline">Las mejores plataformas de streaming a precios increíbles. Calidad garantizada y soporte 24/7.</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs loading">
+            <button class="tab-btn active" onclick="showTab('perfiles')">📱 Perfiles Personales</button>
+            <button class="tab-btn" onclick="showTab('completas')">👥 Cuentas Completas</button>
+        </div>
+
+        <!-- Perfiles Personales -->
+        <div id="perfiles" class="services-section loading">
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="platform-logo" style="background: #e50914;">N</div>
+                    <h3 class="platform-name">NETFLIX</h3>
+                    <div class="price">S/. 8</div>
+                    <ul class="features">
+                        <li>1 perfil personal</li>
+                        <li>HD disponible</li>
+                        <li>Plan Premium 4K</li>
+                        <li>Garantía 30 días</li>
+                    </ul>
+                    <a href="https://wa.me/51923607393?text=🎬%20Hola!%20Quiero%20comprar%20NETFLIX%20Perfil%20Personal%20-%20S/.8%0A%0A¿Podrías%20darme%20más%20información?" class="buy-btn">💬 COMPRAR AHORA</a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="platform-logo" style="background: #00a8e1;">P</div>
+                    <h3 class="platform-name">PRIME VIDEO</h3>
+                    <div class="price">S/. 6</div>
+                    <ul class="features">
+                        <li>Perfil personal</li>
+                        <li>Prime Video completo</li>
+                        <li>Garantía 30 días</li>
+                        <li>Plan Premium</li>
+                    </ul>
+                    <a href="https://wa.me/51923607393?text=🎬%20Hola!%20Quiero%20comprar%20PRIME%20VIDEO%20Perfil%20Personal%20-%20S/.6%0A%0A¿Podrías%20darme%20más%20información?" class="buy-btn">💬 COMPRAR AHORA</a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="platform-logo" style="background: #f47521;">C</div>
+                    <h3 class="platform-name">CRUNCHYROLL</h3>
+                    <div class="price">S/. 5</div>
+                    <ul class="features">
+                        <li>Perfil personal</li>
+                        <li>Sin anuncios</li>
+                        <li>Plan Mega Fan</li>
+                        <li>Garantía 30 días</li>
+                    </ul>
+                    <a href="https://wa.me/51923607393?text=🎬%20Hola!%20Quiero%20comprar%20CRUNCHYROLL%20Perfil%20Personal%20-%20S/.5%0A%0A¿Podrías%20darme%20más%20información?" class="buy-btn">💬 COMPRAR AHORA</a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="platform-logo" style="background: #ff0000;">YT</div>
+                    <h3 class="platform-name">YOUTUBE PREMIUM</h3>
+                    <div class="price">S/. 7</div>
+                    <ul class="features">
+                        <li>Con tu correo</li>
+                        <li>Sin anuncios</li>
+                        <li>Plan Premium</li>
+                        <li>Garantía 30 días</li>
+                    </ul>
+                    <a href="https://wa.me/51923607393?text=🎬%20Hola!%20Quiero%20comprar%20YOUTUBE%20PREMIUM%20Perfil%20Personal%20-%20S/.7%0A%0A¿Podrías%20darme%20más%20información?" class="buy-btn">💬 COMPRAR AHORA</a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="platform-logo" style="background: #00c4cc;">C</div>
+                    <h3 class="platform-name">CANVA PRO</h3>
+                    <div class="price">S/. 6</div>
+                    <ul class="features">
+                        <li>Con tu correo</li>
+                        <li>Todas las funciones</li>
+                        <li>Plan Pro completo</li>
+                        <li>Garantía 30 días</li>
+                    </ul>
+                    <a href="https://wa.me/51923607393?text=🎬%20Hola!%20Quiero%20comprar%20CANVA%20PRO%20Perfil%20Personal%20-%20S/.6%0A%0A¿Podrías%20darme%20más%20información?" class="buy-btn">💬 COMPRAR AHORA</a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="platform-logo" style="background: #006bb3;">D+</div>
+                    <h3 class="platform-name">DISNEY+</h3>
+                    <div class="price">S/. 8</div>
+                    <ul class="features">
+                        <li>1 perfil personal</li>
+                        <li>4K disponible</li>
+                        <li>Plan Premium</li>
+                        <li>Garantía 30 días</li>
+                    </ul>
+                    <a href="https://wa.me/51923607393?text=🎬%20Hola!%20Quiero%20comprar%20DISNEY+%20Perfil%20Personal%20-%20S/.8%0A%0A¿Podrías%20darme%20más%20información?" class="buy-btn">💬 COMPRAR AHORA</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cuentas Completas -->
+        <div id="completas" class="services-section hidden">
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="platform-logo" style="background: #e50914;">N</div>
+                    <h3 class="platform-name">NETFLIX</h3>
+                    <div class="price">S/. 20</div>
+                    <ul class="features">
+                        <li>Cuenta para 5 perfiles</li>
+                        <li>Plan Premium 4K</li>
+                        <li>Acceso completo</li>
+                        <li>Garantía 30 días</li>
+                    </ul>
+                    <a href="https://wa.me/51923607393?text=🎬%20Hola!%20Quiero%20comprar%20NETFLIX%20Cuenta%20Completa%20-%20S/.20%0A%0A¿Podrías%20darme%20más%20información?" class="buy-btn">💬 COMPRAR AHORA</a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="platform-logo" style="background: #00a8e1;">P</div>
+                    <h3 class="platform-name">PRIME VIDEO</h3>
+                    <div class="price">S/. 15</div>
+                    <ul class="features">
+                        <li>Cuenta para 6 perfiles</li>
+                        <li>Plan Premium completo</li>
+                        <li>Acceso total</li>
+                        <li>Garantía 30 días</li>
+                    </ul>
+                    <a href="https://wa.me/51923607393?text=🎬%20Hola!%20Quiero%20comprar%20PRIME%20VIDEO%20Cuenta%20Completa%20-%20S/.15%0A%0A¿Podrías%20darme%20más%20información?" class="buy-btn">💬 COMPRAR AHORA</a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="platform-logo" style="background: #f47521;">C</div>
+                    <h3 class="platform-name">CRUNCHYROLL</h3>
+                    <div class="price">S/. 12</div>
+                    <ul class="features">
+                        <li>Cuenta para 5 perfiles</li>
+                        <li>Plan Mega Fan</li>
+                        <li>Sin restricciones</li>
+                        <li>Garantía 30 días</li>
+                    </ul>
+                    <a href="https://wa.me/51923607393?text=🎬%20Hola!%20Quiero%20comprar%20CRUNCHYROLL%20Cuenta%20Completa%20-%20S/.12%0A%0A¿Podrías%20darme%20más%20información?" class="buy-btn">💬 COMPRAR AHORA</a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="platform-logo" style="background: #ff0000;">YT</div>
+                    <h3 class="platform-name">YOUTUBE PREMIUM</h3>
+                    <div class="price">S/. 18</div>
+                    <ul class="features">
+                        <li>Cuenta para 5 miembros</li>
+                        <li>Plan Premium familiar</li>
+                        <li>Sin anuncios</li>
+                        <li>Garantía 30 días</li>
+                    </ul>
+                    <a href="https://wa.me/51923607393?text=🎬%20Hola!%20Quiero%20comprar%20YOUTUBE%20PREMIUM%20Cuenta%20Completa%20-%20S/.18%0A%0A¿Podrías%20darme%20más%20información?" class="buy-btn">💬 COMPRAR AHORA</a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="platform-logo" style="background: #00c4cc;">C</div>
+                    <h3 class="platform-name">CANVA PRO</h3>
+                    <div class="price">S/. 15</div>
+                    <ul class="features">
+                        <li>Cuenta completa</li>
+                        <li>Todas las funciones</li>
+                        <li>Sin restricciones</li>
+                        <li>Garantía 30 días</li>
+                    </ul>
+                    <a href="https://wa.me/51923607393?text=🎬%20Hola!%20Quiero%20comprar%20CANVA%20PRO%20Cuenta%20Completa%20-%20S/.15%0A%0A¿Podrías%20darme%20más%20información?" class="buy-btn">💬 COMPRAR AHORA</a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="platform-logo" style="background: #006bb3;">D+</div>
+                    <h3 class="platform-name">DISNEY+</h3>
+                    <div class="price">S/. 25</div>
+                    <ul class="features">
+                        <li>Cuenta para 7 perfiles</li>
+                        <li>Plan Premium 4K</li>
+                        <li>Acceso completo</li>
+                        <li>Garantía 30 días</li>
+                    </ul>
+                    <a href="https://wa.me/51923607393?text=🎬%20Hola!%20Quiero%20comprar%20DISNEY+%20Cuenta%20Completa%20-%20S/.25%0A%0A¿Podrías%20darme%20más%20información?" class="buy-btn">💬 COMPRAR AHORA</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guarantees -->
+        <section class="guarantees loading">
+            <h2>🛡️ SERVICIOS 100% GARANTIZADOS</h2>
+            <div class="guarantee-grid">
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">⏰</div>
+                    <h3>Garantía del tiempo contratado</h3>
+                    <p>Te aseguramos que el servicio durará exactamente lo prometido</p>
+                </div>
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">🛠️</div>
+                    <h3>Soporte 24/7</h3>
+                    <p>Atención personalizada todos los días del año</p>
+                </div>
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">🔒</div>
+                    <h3>100% Seguro</h3>
+                    <p>Tus datos y pagos están completamente protegidos</p>
+                </div>
+                <div class="guarantee-item">
+                    <div class="guarantee-icon">✅</div>
+                    <h3>100% Confiable</h3>
+                    <p>Miles de clientes satisfechos nos respaldan</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact loading">
+            <h2>📞 ¡Contáctanos Ahora!</h2>
+            <p style="font-size: 1.2rem; margin: 20px 0; opacity: 0.9;">
+                Respuesta inmediata • Atención personalizada • Proceso rápido
+            </p>
+            
+            <a href="https://wa.me/51923607393?text=🎬%20Hola%20JIREH%20STREAMING!%20%0A%0AQuiero%20información%20sobre%20sus%20servicios%20de%20streaming.%20%0A%0A¿Podrían%20ayudarme%20a%20elegir%20el%20mejor%20plan?" 
+               class="whatsapp-btn">
+                📱 +51 923 607 393
+            </a>
+            
+            <h3 style="margin-top: 40px; font-size: 1.5rem;">💳 MÉTODOS DE PAGO SEGUROS</h3>
+            <div class="payment-methods">
+                <div class="payment-icon" style="background: linear-gradient(45deg, #722ed1, #9c88ff);">YAPE</div>
+                <div class="payment-icon" style="background: linear-gradient(45deg, #13c2c2, #36cfc9);">PLIN</div>
+                <div class="payment-icon" style="background: linear-gradient(45deg, #1890ff, #40a9ff);">BCP</div>
+                <div class="payment-icon" style="background: linear-gradient(45deg, #52c41a, #73d13d);">BBVA</div>
+                <div class="payment-icon" style="background: linear-gradient(45deg, #fa541c, #ff7a45);">INTER</div>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 20px; background: rgba(78, 205, 196, 0.1); border-radius: 15px; border: 1px solid rgba(78, 205, 196, 0.3);">
+                <h4 style="color: #4ecdc4; margin-bottom: 10px;">🚀 ¿Por qué elegir JIREH STREAMING?</h4>
+                <p style="margin: 5px 0;">✨ Entrega inmediata tras confirmación de pago</p>
+                <p style="margin: 5px 0;">🔄 Reemplazo gratuito si hay algún problema</p>
+                <p style="margin: 5px 0;">💬 Atención personalizada vía WhatsApp</p>
+                <p style="margin: 5px 0;">⭐ +1000 clientes satisfechos</p>
+            </div>
+            
+            <p style="margin-top: 20px; font-size: 1.1rem; font-weight: bold;">
+                <span style="color: #4ecdc4;">¡Escríbenos ahora!</span> 
+                Respuesta garantizada en menos de 5 minutos ⚡
+            </p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer loading">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h3 style="color: #4ecdc4; margin-bottom: 15px;">🎬 JIREH STREAMING</h3>
+            <p style="font-size: 1.1rem; margin-bottom: 10px;">
+                <strong>La mejor experiencia de streaming a precios increíbles</strong>
+            </p>
+            <p style="opacity: 0.8;">
+                Servicio confiable y garantizado para toda la familia
+            </p>
+            <div style="margin: 20px 0; padding-top: 20px; border-top: 1px solid rgba(78, 205, 196, 0.3);">
+                <p style="font-size: 0.9rem; opacity: 0.7;">
+                    &copy; 2024 JIREH STREAMING - Todos los derechos reservados
+                </p>
+                <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 5px;">
+                    Sitio web diseñado para brindar la mejor experiencia de usuario
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Función para cambiar pestañas
+        function showTab(tabName) {
+            // Ocultar todas las secciones
+            document.getElementById('perfiles').classList.add('hidden');
+            document.getElementById('completas').classList.add('hidden');
+            
+            // Remover clase activa de todos los botones
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Mostrar sección seleccionada
+            document.getElementById(tabName).classList.remove('hidden');
+            
+            // Agregar clase activa al botón clickeado
+            event.target.classList.add('active');
+            
+            // Reagregar animaciones de entrada
+            const cards = document.querySelectorAll(`#${tabName} .service-card`);
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        }
+
+        // Animaciones de carga
+        document.addEventListener('DOMContentLoaded', function() {
+            // Remover clase loading después de un delay
+            setTimeout(() => {
+                document.querySelectorAll('.loading').forEach(el => {
+                    el.classList.remove('loading');
+                });
+            }, 500);
+
+            // Animar las tarjetas de servicios
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observar todas las tarjetas
+            document.querySelectorAll('.service-card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Efecto de typing en el título
+            const logoText = document.querySelector('.logo');
+            const originalText = logoText.textContent;
+            logoText.textContent = '';
+            
+            let i = 0;
+            const typeWriter = () => {
+                if (i < originalText.length) {
+                    logoText.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            };
+            
+            setTimeout(typeWriter, 1000);
+        });
+
+        // Efectos de hover mejorados
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.03)';
+                this.querySelector('.platform-logo').style.transform = 'scale(1.1) rotate(5deg)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.querySelector('.platform-logo').style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        // Scroll suave para navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Efecto parallax sutil en el header
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const header = document.querySelector('.header');
+            if (header) {
+                header.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
